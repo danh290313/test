@@ -1,0 +1,35 @@
+spring:
+  thymeleaf:
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/recruit?serverTimezone=GMT%2b8&useUnicode=true&characterEncoding=utf8
+      username: root
+      password: 
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      driver-class-name: com.mysql.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      dialect: org.hibernate.dialect.MySQL8Dialect
+
+mybatis:
+  type-aliases-package: com.yuu.recruit.domain
+  mapper-locations: classpath:mapper/*.xml
+
+server:
+  port: 80
